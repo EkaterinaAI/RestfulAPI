@@ -47,7 +47,7 @@ public class UserService {
         User user = optionalUser.get();
 
         if(email != null && !email.equals(user.getEmail())) {
-            Optional<User> foundByEmail = userRepository.findAllByEmail(user.getEmail());
+            Optional<User> foundByEmail = userRepository.findAllByEmail(email);
             if(foundByEmail.isPresent()) {
                 throw new IllegalMonitorStateException("юзер с таким email уже существует");
             }
